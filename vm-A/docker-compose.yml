@@ -1,0 +1,91 @@
+version: '2.2'
+services:
+  es_base:
+    image: elasticsearch:7.8.0
+
+    environment:
+      - node.name=es_base
+      - cluster.name=elastic_cluster
+      - discovery.seed_hosts=es_sec,es_ter
+      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - bootstrap.memory_lock=true
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+      - ./elas1/jvm.options:/usr/share/elasticsearch/config/jvm.options:rw
+    ports:
+      - 9700:9200
+    networks:
+      - ELK_BRDG
+#---------------------------------------------------------
+  es_sec:
+    image: elasticsearch:7.8.0
+    environment:
+      - node.name=es_sec
+      - cluster.name=elastic_cluster
+      - discovery.seed_hosts=es_base,es_ter
+      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - bootstrap.memory_lock=true
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es2_data:/usr/share/elasticsearch/data
+      - ./elas2/jvm.options:/usr/share/elasticsearch/config/jvm.options:rw
+    ports:
+      - 9702:9200
+    networks:
+      - ELK_BRDG
+#---------------------------------------------------------
+  es_ter:
+    image: elasticsearch:7.8.0
+    environment:
+      - node.name=es_ter
+      - cluster.name=elastic_cluster
+      - discovery.seed_hosts=es_base,es_sec
+      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - bootstrap.memory_lock=true
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es3_data:/usr/share/elasticsearch/data
+      - ./elas3/jvm.options:/usr/share/elasticsearch/config/jvm.options:rw
+    ports:
+      - 9703:9200
+    networks:
+      - ELK_BRDG
+#---------------------------------------------------------  
+  metricbeA:
+    user: root
+    image: docker.elastic.co/beats/metricbeat:7.8.0
+
+    volumes:
+      - ./metricbeA/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    command: metricbeat -e -strict.perms=false
+    restart: on-failure
+#---------------------------------------------------------    
+volumes:
+  es_data:
+    driver: local
+  es2_data:
+    driver: local
+  es3_data:
+    driver: local
+#---------------------------------------------------------  
+networks:
+  ELK_BRDG:
+    driver: bridge
