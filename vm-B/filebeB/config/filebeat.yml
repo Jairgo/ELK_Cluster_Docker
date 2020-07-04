@@ -17,7 +17,7 @@ setup.template.settings:
 
 
 output.logstash:
-  hosts: ["13.84.208.196:9704"]
+  hosts: ["40.84.129.164:9704"]
 
 processors:
   - add_host_metadata: ~
