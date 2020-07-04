@@ -1,0 +1,26 @@
+version: '2.2'
+services:
+#---------------------------------------------------------  
+  kibana:
+    image: kibana:7.8.0
+
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://104.214.90.144:9700
+      ELASTICSEARCH_HOSTS: http://104.214.90.144:9700
+
+#---------------------------------------------------------  
+  logst:
+    image: logstash:7.8.0
+
+    ports:
+      - 5450:5450
+#    environment:
+#      LS_Java_OPTS: "-Xmx512m -Xms512m"
+    volumes:
+      # Dentro de pipeline debe estar el logstash.conf
+      - ./logsta/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logsta/jvm.options:/usr/share/logstash/config/jvm.options
+      - ./logsta/logstash.yml:/usr/share/logstash/config/logstash.yml
+
