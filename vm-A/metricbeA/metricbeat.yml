@@ -19,7 +19,7 @@ setup.template.settings:
   index.codec: best_compression
 
 output.logstash:
-  hosts: ["13.84.208.196:9703"]
+  hosts: ["13.84.208.196:9706"]
 
 processors:
   - add_host_metadata: ~

@@ -11,6 +11,7 @@ services:
       - ./logstaB/pipeline/logstash_metricbeat.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
       - "9705:5044"
+      - "9706:5044"
 #2----------------
   LogstaFileVmB:
     image: docker.elastic.co/logstash/logstash:7.8.0
