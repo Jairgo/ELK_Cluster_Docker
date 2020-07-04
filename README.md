@@ -12,3 +12,9 @@ Adjunto se encuentra una imagen donde se da la exxplicación de una guía básic
   40.84.129.164    |       vm-B       
   13.66.52.219     |       vm-C       
 ****************************************
+
+| IP | MAQUINA |
+| ------------- | ------------- |
+| 104.214.90.144  | vm-A   |
+| 40.84.129.164  | vm-B  |
+| 13.66.52.219  | vm-C  |
