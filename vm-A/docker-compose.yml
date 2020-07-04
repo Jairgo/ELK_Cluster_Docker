@@ -1,13 +1,13 @@
 version: '2.2'
 services:
-  es_base:
+  Elas1VmA:
     image: elasticsearch:7.8.0
 
     environment:
-      - node.name=es_base
+      - node.name=Elas1VmA
       - cluster.name=elastic_cluster
-      - discovery.seed_hosts=es_sec,es_ter
-      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - discovery.seed_hosts=Elas2VmA,Elas3VmA
+      - cluster.initial_master_nodes=Elas1VmA,Elas2VmA,Elas3VmA
       - bootstrap.memory_lock=true
 
     ulimits:
@@ -22,13 +22,13 @@ services:
     networks:
       - ELK_BRDG
 #---------------------------------------------------------
-  es_sec:
+  Elas2VmA:
     image: elasticsearch:7.8.0
     environment:
-      - node.name=es_sec
+      - node.name=Elas2VmA
       - cluster.name=elastic_cluster
-      - discovery.seed_hosts=es_base,es_ter
-      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - discovery.seed_hosts=Elas1VmA,Elas3VmA
+      - cluster.initial_master_nodes=Elas1VmA,Elas2VmA,Elas3VmA
       - bootstrap.memory_lock=true
 
     ulimits:
@@ -43,13 +43,13 @@ services:
     networks:
       - ELK_BRDG
 #---------------------------------------------------------
-  es_ter:
+  Elas3VmA:
     image: elasticsearch:7.8.0
     environment:
-      - node.name=es_ter
+      - node.name=Elas3VmA
       - cluster.name=elastic_cluster
-      - discovery.seed_hosts=es_base,es_sec
-      - cluster.initial_master_nodes=es_base,es_sec,es_ter
+      - discovery.seed_hosts=Elas1VmA,Elas2VmA
+      - cluster.initial_master_nodes=Elas1VmA,Elas2VmA,Elas3VmA
       - bootstrap.memory_lock=true
 
     ulimits:
@@ -64,12 +64,12 @@ services:
     networks:
       - ELK_BRDG
 #---------------------------------------------------------  
-  metricbeA:
+  MetricVmA:
     user: root
     image: docker.elastic.co/beats/metricbeat:7.8.0
 
     volumes:
-      - ./metricbeA/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - ./MetricbeA/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - /proc:/hostfs/proc:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
       - /:/hostfs:ro

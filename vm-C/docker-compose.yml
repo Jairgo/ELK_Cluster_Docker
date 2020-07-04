@@ -1,7 +1,7 @@
 version: '2.2'
 services:
 #---------------------------------------------------------  
-  kibana:
+  KibanaVmC:
     image: kibana:7.8.0
 
     ports:
@@ -11,7 +11,7 @@ services:
       ELASTICSEARCH_HOSTS: http://104.214.90.144:9700
 
 #---------------------------------------------------------  
-  logst:
+  LogstaVmC:
     image: logstash:7.8.0
 
     ports:
