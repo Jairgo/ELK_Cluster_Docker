@@ -69,7 +69,7 @@ services:
     image: docker.elastic.co/beats/metricbeat:7.8.0
 
     volumes:
-      - ./MetricbeA/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - ./metricbeA/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - /proc:/hostfs/proc:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
       - /:/hostfs:ro
