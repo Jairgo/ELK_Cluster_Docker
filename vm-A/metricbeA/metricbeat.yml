@@ -19,10 +19,6 @@ setup.template.settings:
   index.codec: best_compression
 
 output.logstash:
-  hosts: ["40.84.129.164:9706"]
-
-processors:
-  - add_host_metadata: ~
-  - add_cloud_metadata: ~
-  - add_docker_metadata: ~
-  - add_kubernetes_metadata: ~
+  #enabled: true
+  hosts: ["40.84.129.164:9705"]
+  worker: 1
