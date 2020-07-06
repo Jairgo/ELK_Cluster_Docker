@@ -77,8 +77,11 @@ Para importar el dashboard y las demás graficas deberás entrar al siguiente li
 ip_server_kibana:5601
 ```
 Da clic en el menú lateral izquierdo.
-Desplázate hasta management y da clic en “stack management”:
-Da clic en “import”: y selecciona el archivo “export.ndjson” que clonaste del repositorio
+
+Desplázate hasta management y da clic en “stack management”.
+
+Da clic en “import”: y selecciona el archivo “export.ndjson” que clonaste del repositorio.
+
 
 ## Posibles problemáticas
 De ser el caso en el que alguno de tus nodos de elastic se detenga con codigo de error de salida 78, ejecuta el siguiente comando
