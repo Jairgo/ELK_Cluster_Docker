@@ -20,6 +20,7 @@ services:
       - ./logstaB/file/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstaB/file/jvm.options:/usr/share/logstash/config/jvm.options"
       - ./logstaB/pipeline/logstash_filebeat.conf:/usr/share/logstash/pipeline/logstash.conf
+      
     ports:
       - "9704:5045"
 #3----------------
@@ -46,5 +47,5 @@ services:
     volumes:
       - ./filebeB/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./filebeB/data:/usr/share/filebeat/data
-      - ./filebeB/logs/logstash-tutorial.log:/home/jair2/covidB/filebeB/logs/logstash-tutorial.log
+      - ./filebeB/logstash-tutorial.log:/data/logstash-tutorial.log
     command: ["-e", "--strict.perms=false"]

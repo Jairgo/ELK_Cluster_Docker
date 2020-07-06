@@ -6,17 +6,10 @@ filebeat.inputs:
     - type: log
       enabled: true
       paths:
-        - /home/jair2/covidB/filebeB/logs/logstash-tutorial.log
-
-filebeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
-
-setup.template.settings:
-  index.number_of_shards: 1
-
+        - /data/logstash-tutorial.log
 
 output.logstash:
+  enabled: true
   hosts: ["40.84.129.164:9704"]
 
 processors:
