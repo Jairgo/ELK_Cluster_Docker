@@ -20,18 +20,18 @@ Prerrequisitos:
 
 * Instalación
 Donde vayas a clonar el repositorio recomiendo que tengas instalado git para ingresar el siguiente comando:
-********************************************************
+```
 git clone https://github.com/Jairgo/ELK_Cluster_Docker.git
-********************************************************
+```
 Dentro de la carpeta que acabas de clonar deberás ejecutar el archivo “script.sh” escribiendo en tu línea de comandos: ./script.sh, después de esto se te presentarán
-********************************************************
+```
 ./script.sh
-********************************************************
+```
 
 Ingresa las ips que ocuparás para manejar tu entorno de servidores:
-********************************************************
+```
 Introduza la ip de su máquina/servidor 1
 x.x.x.x
 Introduza la ip de su máquina/servidor 2
 x.x.x.x
-********************************************************
+```
