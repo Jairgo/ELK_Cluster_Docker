@@ -12,13 +12,13 @@ Adjunto se encuentra una imagen donde se da la exxplicación de una guía básic
 | 40.84.129.164  | vm-B  |
 | 13.66.52.219  | vm-C  |
 
-Prerrequisitos:
+## Prerrequisitos:
 
 1. Contar con un ambiente de 3 maquinas / servidores distintos
 2. Tener instalado previamente Docker y Docker-compose en estas máquinas
 3. Tener instalado previamente Java jre
 
-* Instalación
+## Instalación
 Donde vayas a clonar el repositorio recomiendo que tengas instalado git para ingresar el siguiente comando:
 ```
 git clone https://github.com/Jairgo/ELK_Cluster_Docker.git
