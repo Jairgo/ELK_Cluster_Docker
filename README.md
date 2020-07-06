@@ -3,7 +3,9 @@ Es un cluster que consta de 3 maquinas distintas, en una sola maquina se encuent
 
 La principal fuente de información proviene de una api gratuita y que despliega la información actualizada en tiempo real de las estadisticas del coronavirus
 
-Adjunto se encuentra una imagen donde se da la exxplicación de una guía básica de lo que se busca hacer en este proyecto
+Adjunto se encuentra una imagen donde se da la explicación de una guía básica de lo que se busca hacer en este proyecto
+
+
 ![Estructura de proyecto](./Elk_Docker_Diagram.png)
 
 | IP | MAQUINA |
